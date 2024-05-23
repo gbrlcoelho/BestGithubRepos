@@ -1,34 +1,36 @@
 import {MetaDataPage} from '@types';
 
 import {PageAPI} from './apiTypes';
+import {apiUtils} from './apiUtils';
 
-const toMetaDataPage = <APIType>(
-  responseData: PageAPI<APIType>,
+const toMetaDataPage = (
+  linkHeader: string,
+  currentPage: number,
+  perPage: number,
 ): MetaDataPage => {
-  const total = Math.min(responseData.total_count, 1000);
-  const perPage = responseData.items.length;
-  const currentPage = 1;
-  const lastPage = Math.ceil(total / perPage);
-  const firstPage = 1;
-  const hasNextPage = lastPage > 1;
+  const links = apiUtils.parseLinkHeader(linkHeader);
+  const hasNextPage = 'next' in links;
+  const hasPreviousPage = 'prev' in links;
 
   return {
-    total,
     perPage,
     currentPage,
-    lastPage,
-    firstPage,
+    firstPage: 1,
     hasNextPage,
+    hasPreviousPage,
   };
 };
 
 const toPageModel = <APIType, ModelType>(
   page: PageAPI<APIType>,
   adapterToModel: (api: APIType) => ModelType,
+  linkHeader: string,
+  currentPage: number,
+  perPage: number,
 ) => {
   return {
     data: page.items.map(adapterToModel),
-    meta: toMetaDataPage(page),
+    meta: toMetaDataPage(linkHeader, currentPage, perPage),
   };
 };
 
