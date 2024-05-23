@@ -117,6 +117,7 @@ export interface PermissionsAPI {
 }
 
 export interface Repository {
+  id: string;
   name: string;
   description: string;
   owner: {

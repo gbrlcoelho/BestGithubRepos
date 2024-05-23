@@ -12,12 +12,14 @@ const getList = async (page: number): Promise<Page<Repository>> => {
     page,
     per_page: PER_PAGE,
   });
+
   return apiAdapter.toPageModel(
-    repositoryPageAPI,
+    repositoryPageAPI.data,
     repositoryAdapter.toRepository,
+    repositoryPageAPI.headers.link,
+    page,
+    PER_PAGE,
   );
 };
 
-export const repositoryService = {
-  getList,
-};
+export const repositoryService = {getList};

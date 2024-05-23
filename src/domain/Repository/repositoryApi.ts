@@ -12,7 +12,10 @@ const getList = async (params: PageParams) => {
       params,
     },
   );
-  return response.data;
+  return {
+    data: response.data,
+    headers: response.headers,
+  };
 };
 
 export const repositoryAPI = {
