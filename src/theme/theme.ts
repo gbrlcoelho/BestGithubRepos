@@ -24,7 +24,9 @@ export const theme = createTheme({
     s16: 16,
   },
 
-  textVariants: {},
+  textVariants: {
+    defaults: {},
+  },
 });
 
 export const darkTheme = createTheme({
