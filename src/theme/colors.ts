@@ -4,8 +4,8 @@ export const palette = {
   black70: '#0B0B0B',
   lightBlue: '#69ACEB',
   white70: '#FFFFFC',
-  gray: '#BFBDB6',
-  lightGray: '#A7A7A7',
+  gray: '#A7A7A7',
+  lightGray: '#BFBDB6',
 };
 
 export const colors = {
@@ -16,6 +16,7 @@ export const colors = {
     textContrast: palette.white,
     secondary: palette.gray,
     lightSecondary: palette.lightGray,
+    lightText: palette.black70,
   },
   darkTheme: {
     accentText: palette.lightBlue,
@@ -24,5 +25,6 @@ export const colors = {
     textContrast: palette.black,
     secondary: palette.gray,
     lightSecondary: palette.lightGray,
+    darkText: palette.white70,
   },
 };
