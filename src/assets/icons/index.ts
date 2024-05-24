@@ -1,3 +1,3 @@
 export * from './ForkIcon';
-export * from './Menu';
+export * from './MenuIcon';
 export * from './StarIcon';
