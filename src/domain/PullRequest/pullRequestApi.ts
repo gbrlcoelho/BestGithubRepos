@@ -14,6 +14,26 @@ const getList = async (params: GetPullRequestListParams) => {
   };
 };
 
+const getCountPullRequests = async (params: GetPullRequestListParams) => {
+  const response = await api.get<PullRequestAPI[]>(
+    `${PULL_REQUESTS_PATH}${params.owner}/${params.repo}/pulls?state=all`,
+  );
+
+  const openPullRequests = response.data.filter(
+    pullRequest => pullRequest.state === 'open',
+  );
+
+  const closedPullRequests = response.data.filter(
+    pullRequest => pullRequest.state === 'closed',
+  );
+
+  return {
+    openPullRequests: openPullRequests.length,
+    closedPullRequests: closedPullRequests.length,
+  };
+};
+
 export const pullRequestApi = {
   getList,
+  getCountPullRequests,
 };

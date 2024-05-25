@@ -28,4 +28,13 @@ const getList = async (
   );
 };
 
-export const pullRequestService = {getList};
+const getCountPullRequests = async (owner: string, repo: string) => {
+  const response = await pullRequestApi.getCountPullRequests({owner, repo});
+
+  return {
+    openPullRequests: response.openPullRequests,
+    closedPullRequests: response.closedPullRequests,
+  };
+};
+
+export const pullRequestService = {getList, getCountPullRequests};
