@@ -3,6 +3,7 @@ import {FlatList, RefreshControl} from 'react-native';
 
 import {useScrollToTop} from '@react-navigation/native';
 
+import {Separator} from '@components';
 import {usePaginatedList} from '@infra';
 
 import {EmptyList} from './components/EmptyList';
@@ -10,6 +11,8 @@ import {
   InfinityScrollListProps,
   ItemTConstraints,
 } from './InfinityScrollListProps';
+
+const separator = () => <Separator />;
 
 export const InfinityScrollList = <ItemT extends ItemTConstraints>({
   flatListProps,
@@ -38,6 +41,7 @@ export const InfinityScrollList = <ItemT extends ItemTConstraints>({
       onEndReached={fetchNextPage}
       onEndReachedThreshold={0.1}
       refreshing={isLoading}
+      ItemSeparatorComponent={separator}
       refreshControl={
         <RefreshControl refreshing={isLoading} onRefresh={refresh} />
       }

@@ -1,4 +1,4 @@
-import {ForkIcon, MenuIcon, StarIcon} from '@icons';
+import {ArrowLeftIcon, ForkIcon, MenuIcon, StarIcon} from '@icons';
 import {ThemeColors} from '@theme';
 
 export interface IconProps {
@@ -19,6 +19,7 @@ export const iconRegistry = {
   star: StarIcon,
   fork: ForkIcon,
   menu: MenuIcon,
+  arrowLeft: ArrowLeftIcon,
 };
 
 type IconType = typeof iconRegistry;

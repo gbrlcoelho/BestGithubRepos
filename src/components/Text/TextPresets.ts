@@ -1,4 +1,4 @@
-import {TextStyle} from 'react-native';
+import {Platform, TextStyle} from 'react-native';
 
 export type TextPresets =
   | 'headingLarge'
@@ -25,7 +25,7 @@ export const getFontStyle = (
   }
 
   if (bold) {
-    fontStyle.fontWeight = 'bold';
+    fontStyle.fontWeight = Platform.OS === 'ios' ? '900' : 'bold';
   } else if (semiBold) {
     fontStyle.fontWeight = '600';
   } else {
@@ -38,7 +38,7 @@ export const getFontStyle = (
 };
 
 export const $fontSizes: Record<TextPresets, TextStyle> = {
-  headingLarge: {fontSize: 32, lineHeight: 38.4},
+  headingLarge: {fontSize: 24, lineHeight: 28.8},
   headingMedium: {fontSize: 22, lineHeight: 26.4},
   headingSmall: {fontSize: 18, lineHeight: 23.4},
 
