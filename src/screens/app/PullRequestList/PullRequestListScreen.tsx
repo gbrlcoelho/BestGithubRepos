@@ -19,10 +19,10 @@ export const PullRequestListScreen = ({
   route,
 }: AppScreenProps<'PullRequestListScreen'>) => {
   const {spacing} = useAppTheme();
-  const {count, isLoading, error} = usePullRequestCount(
-    route.params.repository.name,
-    route.params.repository.owner,
-  );
+  const {count, isLoading, error} = usePullRequestCount({
+    repo: route.params.repository.name,
+    owner: route.params.repository.owner,
+  });
 
   const renderItem: ListRenderItem<PullRequest> = useCallback(
     ({item}) => <PullRequestCard item={item} />,

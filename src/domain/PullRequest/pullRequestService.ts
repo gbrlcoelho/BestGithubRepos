@@ -34,7 +34,13 @@ const getList = async ({
   );
 };
 
-const getCountPullRequests = async (owner: string, repo: string) => {
+const getCountPullRequests = async ({
+  owner,
+  repo,
+}: {
+  owner: string;
+  repo: string;
+}) => {
   const response = await pullRequestApi.getCountPullRequests({owner, repo});
 
   return {
