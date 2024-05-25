@@ -40,11 +40,12 @@ export const Screen = ({
           paddingVertical="s16"
           backgroundColor="text"
           gap="s16"
+          justifyContent={canGoBack ? 'space-between' : undefined}
           alignItems={canGoBack ? 'center' : 'flex-start'}
           flexDirection={canGoBack ? 'row' : 'column'}
           paddingHorizontal={noPaddingHorizontal ? 's40' : undefined}>
           {canGoBack && (
-            <Box right={38} marginLeft="s24">
+            <Box right={14}>
               <Icon name="arrowLeft" color="background" onPress={goBack} />
             </Box>
           )}
@@ -55,6 +56,7 @@ export const Screen = ({
             style={{fontWeight: titleFontWeight}}>
             {title}
           </Text>
+          {canGoBack && <Box width={23} height={23} />}
           {subtitle && (
             <Text preset="paragraphMedium" color="lightSecondary">
               {subtitle}
