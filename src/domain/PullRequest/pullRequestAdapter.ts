@@ -1,3 +1,5 @@
+import {dateUtils} from '@utils';
+
 import {PullRequest, PullRequestAPI} from './pullRequestTypes';
 
 const toPullRequest = (pullRequestAPI: PullRequestAPI): PullRequest => {
@@ -8,8 +10,9 @@ const toPullRequest = (pullRequestAPI: PullRequestAPI): PullRequest => {
       avatarUrl: pullRequestAPI.user.avatar_url,
     },
     title: pullRequestAPI.title,
-    date: pullRequestAPI.created_at,
+    date: dateUtils.formatDate(pullRequestAPI.created_at),
     body: pullRequestAPI.body,
+    pullRequestUrl: pullRequestAPI.html_url,
   };
 };
 

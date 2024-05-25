@@ -253,4 +253,5 @@ export interface PullRequest {
   title: string;
   date: string;
   body: string;
+  pullRequestUrl: string;
 }
