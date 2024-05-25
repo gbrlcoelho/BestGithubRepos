@@ -7,11 +7,17 @@ import {PullRequest} from './pullRequestTypes';
 
 const PER_PAGE = 10;
 
-const getList = async (
-  owner: string,
-  repo: string,
-  page: number,
-): Promise<Page<PullRequest>> => {
+interface GetPullRequestListParams {
+  owner: string;
+  repo: string;
+  page: number;
+}
+
+const getList = async ({
+  owner,
+  repo,
+  page,
+}: GetPullRequestListParams): Promise<Page<PullRequest>> => {
   const pullRequestAPI = await pullRequestApi.getList({
     owner,
     repo,
