@@ -21,10 +21,10 @@ export const colors = {
   darkTheme: {
     accentText: palette.lightBlue,
     background: palette.black,
-    text: palette.white,
+    text: palette.gray,
     textContrast: palette.black,
     secondary: palette.gray,
-    lightSecondary: palette.lightGray,
+    lightSecondary: palette.white70,
     darkText: palette.white70,
   },
 };
