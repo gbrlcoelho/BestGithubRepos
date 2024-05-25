@@ -1,1 +1,1 @@
-export {};
+export {repositoryService} from './Repository/repositoryService';
