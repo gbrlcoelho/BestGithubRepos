@@ -1,79 +1,98 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Best Github Repos APP
 
-# Getting Started
+Esse projeto é uma aplicação mobile que consome a API do Github para listar os repositórios mais populares da linguagem TypeScript. O usuário pode visualizar detalhes do repositório, como número de estrelas, forks e pull requests.
 
-> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+Abaixo você encontrará informações importantes sobre o projeto como: tecnologias utilizadas, como rodar o projeto e como rodar os testes.
 
-## Step 1: Start the Metro Server
+## Tecnologias Utilizadas
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- React Native
+- TypeScript
+- @shopify/restyle
+- Axios
+- React Navigation
+- React query
+- msw
+- Jest
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Configuração do Arquivo .env
 
-```bash
-# using npm
-npm start
+Para rodar o projeto é necessário criar um arquivo `.env` na raiz do projeto com a seguinte chave:
 
-# OR using Yarn
-yarn start
+```
+BASE_URL=https://api.github.com
+GITHUB_TOKEN=SEU_TOKEN_DE_ACESSO_AO_GITHUB
 ```
 
-## Step 2: Start your Application
+Certifique-se de substituir `SEU_TOKEN_DE_ACESSO_AO_GITHUB` pelo seu token de acesso ao Github.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Instalação
 
-### For Android
+Para instalar as dependências do projeto, execute o comando:
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+yarn
 ```
 
-### For iOS
+Se estiver em um macOs, execute o comando:
 
 ```bash
-# using npm
-npm run ios
+cd ios && pod install && cd ..
+```
 
-# OR using Yarn
+## Rodando o Projeto
+
+Para rodar o projeto, execute o comando:
+
+```bash
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+ou
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+yarn android
+```
 
-## Step 3: Modifying your App
+## Rodando os Testes
 
-Now that you have successfully run the app, let's modify it.
+Para rodar os testes, execute o comando:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+```bash
+yarn test
+```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## Screenshots
 
-## Congratulations! :tada:
+![Repositórios](./screenshots/repositories.png)
+![Pull Requests](./screenshots/pull-requests.png)
 
-You've successfully run and modified your React Native App. :partying_face:
+### Dark Mode
 
-### Now what?
+![Repositórios Dark](./screenshots/repositories-dark.png)
+![Pull Requests Dark](./screenshots/pull-requests-dark.png)
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+## Arquitetura
 
-# Troubleshooting
+Este aplicativo React Native adota uma arquitetura que segue os conceitos de Domain-Driven Design (DDD), MVVM (Model-View-ViewModel) e Clean Architecture. A arquitetura do projeto é separada em diferentes camadas de responsabilidade, garantindo uma estrutura modular, de fácil manutenção e escalável.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Camadas do Projeto
 
-# Learn More
+1. **Camada de UI**
 
-To learn more about React Native, take a look at the following resources:
+- Responsável por gerenciar a interface do usuário e a interação com o mesmo.
+- Inclui componentes de UI, telas, navegação e temas.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+2. **Camada de Aplicação**
+
+- Contém a lógica de aplicação e o gerenciamento de estado.
+- Inclui hooks personalizados, serviços internos e configuração da API.
+
+3. **Camada de Domínio**
+
+- Foco na lógica de negócio, entidades e casos de uso.
+- Contém serviços de domínio, adaptadores e tipos.
+
+## Conclusão
+
+A arquitetura modular deste projeto facilita a manutenção e a escalabilidade do aplicativo. A separação clara de responsabilidades através das camadas de UI, Aplicação e Domínio permite que os desenvolvedores trabalhem de forma mais eficiente e organizada, promovendo um desenvolvimento mais sustentável e de alta qualidade.
