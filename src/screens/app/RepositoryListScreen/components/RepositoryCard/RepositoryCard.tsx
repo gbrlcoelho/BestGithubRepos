@@ -13,7 +13,10 @@ export const RepositoryCard = ({item, onPress}: RepositoryCardProps) => {
   };
 
   return (
-    <TouchableOpacityBox flex={1} onPress={onPressItem}>
+    <TouchableOpacityBox
+      flex={1}
+      onPress={onPressItem}
+      testID={`repository-card-${item.name}`}>
       <Text
         preset="paragraphMedium"
         color="accentText"
