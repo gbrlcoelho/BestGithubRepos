@@ -17,6 +17,7 @@ export const colors = {
     secondary: palette.gray,
     lightSecondary: palette.lightGray,
     lightText: palette.black70,
+    shadow: palette.black,
   },
   darkTheme: {
     accentText: palette.lightBlue,
@@ -26,5 +27,6 @@ export const colors = {
     secondary: palette.gray,
     lightSecondary: palette.white70,
     darkText: palette.white70,
+    shadow: palette.black,
   },
 };
