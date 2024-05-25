@@ -1,3 +1,7 @@
 import {setupServer} from 'msw/node';
 
-export const server = setupServer();
+import {repositoryHandlers} from './Repository/repositoryHandlers';
+
+export const server = setupServer(...repositoryHandlers);
+
+export {resetInMemoryResponse} from './Repository/repositoryHandlers';

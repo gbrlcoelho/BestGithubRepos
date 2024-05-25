@@ -1,1 +1,1 @@
-export {server} from './server/server';
+export {resetInMemoryResponse, server} from './server/server';
