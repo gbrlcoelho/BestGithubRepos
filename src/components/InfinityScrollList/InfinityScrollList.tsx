@@ -19,13 +19,14 @@ export const InfinityScrollList = <ItemT extends ItemTConstraints>({
   emptyListProps,
   queryKey,
   getList,
+  queryKeyParams,
   renderItem,
 }: InfinityScrollListProps<ItemT>) => {
   const flatListRef = useRef<FlatList<ItemT>>(null);
   useScrollToTop(flatListRef);
 
   const {list, isError, isLoading, refresh, fetchNextPage} = usePaginatedList(
-    [queryKey],
+    [queryKey, queryKeyParams],
     getList,
   );
 

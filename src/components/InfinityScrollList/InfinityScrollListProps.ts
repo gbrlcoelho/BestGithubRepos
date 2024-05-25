@@ -11,5 +11,6 @@ export interface InfinityScrollListProps<ItemT extends ItemTConstraints> {
   flatListProps?: Partial<Omit<FlatListProps<ItemT>, 'renderItem'>>;
   emptyListProps?: Pick<EmptyListProps, 'emptyMessage' | 'errorMessage'>;
   queryKey: QueryKeys;
+  queryKeyParams?: string;
   getList: Parameters<typeof usePaginatedList<ItemT>>[1];
 }
