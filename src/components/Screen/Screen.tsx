@@ -50,6 +50,7 @@ export const Screen = ({
             </Box>
           )}
           <Text
+            testID={`title-${title}`}
             preset="headingLarge"
             color="textContrast"
             bold
