@@ -35,7 +35,7 @@ describe('Integration: RepositoryListScreen', () => {
     jest.resetAllMocks();
   });
   it('should go to PullRequestListScreen when press on RepositoryCard', async () => {
-    const {debug} = render(
+    render(
       <Stack.Navigator>
         <Stack.Screen
           name="RepositoryListScreen"
@@ -47,8 +47,6 @@ describe('Integration: RepositoryListScreen', () => {
         />
       </Stack.Navigator>,
     );
-
-    debug();
 
     const repositoryCard = await screen.findByTestId(
       'repository-card-freeCodeCamp',
