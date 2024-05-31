@@ -1,1 +1,1 @@
-export {resetInMemoryResponse, server} from './server/server';
+export {mockedData, resetInMemoryResponse, server} from './server/server';

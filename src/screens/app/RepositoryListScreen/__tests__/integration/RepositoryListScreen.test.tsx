@@ -10,7 +10,7 @@ import {
   jest,
 } from '@jest/globals';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {resetInMemoryResponse, server} from '@test';
+import {mockedData, resetInMemoryResponse, server} from '@test';
 import {fireEvent, render, screen} from 'test-utils';
 
 import {AppStackParamList} from '@routes';
@@ -49,7 +49,7 @@ describe('Integration: RepositoryListScreen', () => {
     );
 
     const repositoryCard = await screen.findByTestId(
-      'repository-card-freeCodeCamp',
+      `repository-card-${mockedData.mockedResponse.items[0].name}`,
     );
 
     expect(repositoryCard).toBeTruthy();
@@ -57,7 +57,7 @@ describe('Integration: RepositoryListScreen', () => {
     fireEvent.press(repositoryCard);
 
     const pullRequestListScreen = await screen.findByTestId(
-      `title-freeCodeCamp`,
+      `title-${mockedData.mockedResponse.items[0].name}`,
     );
 
     expect(pullRequestListScreen).toBeTruthy();
