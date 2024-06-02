@@ -16,7 +16,7 @@ export const resetInMemoryResponse = () => {
 };
 
 export const repositoryHandlers = [
-  http.get(FULL_URL, async () => {
+  http.get(FULL_URL, () => {
     const response: PageAPI<RepositoryAPI> = inMemoryResponse;
 
     return HttpResponse.json(response, {status: 200});
