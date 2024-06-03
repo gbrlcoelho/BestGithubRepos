@@ -1,7 +1,7 @@
 import {apiAdapter} from '@api';
 import {Page} from '@types';
 
-import {PullRequestAdapter} from './pullRequestAdapter';
+import {pullRequestAdapter} from './pullRequestAdapter';
 import {pullRequestApi} from './pullRequestApi';
 import {PullRequest} from './pullRequestTypes';
 
@@ -27,7 +27,7 @@ const getList = async ({
 
   return apiAdapter.toPageModel(
     {items: pullRequestAPI.data},
-    PullRequestAdapter.toPullRequest,
+    pullRequestAdapter.toPullRequest,
     pullRequestAPI.headers.link,
     page,
     PER_PAGE,
@@ -43,10 +43,7 @@ const getCountPullRequests = async ({
 }) => {
   const response = await pullRequestApi.getCountPullRequests({owner, repo});
 
-  return {
-    openPullRequests: response.openPullRequests,
-    closedPullRequests: response.closedPullRequests,
-  };
+  return pullRequestAdapter.toPullRequestCount(response.data);
 };
 
 export const pullRequestService = {getList, getCountPullRequests};

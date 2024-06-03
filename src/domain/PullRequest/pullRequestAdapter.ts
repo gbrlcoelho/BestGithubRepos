@@ -16,6 +16,22 @@ const toPullRequest = (pullRequestAPI: PullRequestAPI): PullRequest => {
   };
 };
 
-export const PullRequestAdapter = {
+const toPullRequestCount = (pullRequests: PullRequestAPI[]) => {
+  const openPullRequests = pullRequests.filter(
+    pullRequest => pullRequest.state === 'open',
+  ).length;
+
+  const closedPullRequests = pullRequests.filter(
+    pullRequest => pullRequest.state === 'closed',
+  ).length;
+
+  return {
+    openPullRequests,
+    closedPullRequests,
+  };
+};
+
+export const pullRequestAdapter = {
   toPullRequest,
+  toPullRequestCount,
 };
