@@ -56,10 +56,10 @@ describe('Integration: RepositoryListScreen', () => {
 
     fireEvent.press(repositoryCard);
 
-    const pullRequestListScreen = await screen.findByTestId(
+    const pullRequestScreenTitle = screen.getByTestId(
       `title-${mockedData.mockedResponse.items[0].name}`,
     );
 
-    expect(pullRequestListScreen).toBeTruthy();
+    expect(pullRequestScreenTitle).toBeTruthy();
   });
 });
